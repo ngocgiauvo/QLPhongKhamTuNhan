@@ -1,0 +1,79 @@
+﻿<Page x:Class="QLPhongKhamTuNhan.GUI.UIDoctor.ListOfPatient"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:QLPhongKhamTuNhan.GUI.UIDoctor"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="1220"
+      Title="ListOfPatient">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Border Background="#eff4ff" BorderThickness="0,0,0,1" BorderBrush="#FF03A9F4">
+            <TextBlock Text="Danh sách bệnh nhân" VerticalAlignment="Center" FontSize="20" Margin="20,0,0,0" />
+        </Border>
+
+        <DataGrid Grid.Row="3" CanUserAddRows="False"  
+                 x:Name="patientDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True"  ItemsSource="{Binding UpdateSourceTrigger=PropertyChanged}">
+            <DataGrid.Columns>
+                <!--STT-->
+                <DataGridTemplateColumn Width="SizeToHeader" Header="STT" x:Name="sttCol">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding id}" HorizontalAlignment="Center"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <!--fullname-->
+                <DataGridTemplateColumn Width="300"  Header="Họ tên" x:Name="fullnameCol">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding full_name}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <!--Giới tính-->
+                <DataGridTemplateColumn Width="SizeToHeader"  Header="Giới tính" x:Name="sexCol">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding sex}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <!--Năm sinh-->
+                <DataGridTemplateColumn Width="160"  Header="Năm sinh" x:Name="yobCol">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding year_of_birth}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <!--Địa chỉ-->
+                <DataGridTemplateColumn Width="300"  Header="Địa chỉ" x:Name="addressCol">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding address, StringFormat=d}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <!--Lập hóa đơn-->
+                <DataGridTemplateColumn Width="300"  Header="Chức năng" x:Name="billCol">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Grid.Row="1" Width="200" Height="30" x:Name="btnLapPhieuKhamBenh">Lập phiếu khám bệnh</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>
