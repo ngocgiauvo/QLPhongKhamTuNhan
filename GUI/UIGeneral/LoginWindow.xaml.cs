@@ -37,7 +37,7 @@ namespace QLPhongKhamTuNhan.GUI.UIGeneral
 
             UserBUS uBus = new UserBUS();
 
-            User currentUser = uBus.Login(txtUserName.Text, outputPassword);
+            User currentUser = uBus.login(txtUserName.Text, outputPassword);
 
             if (currentUser.id != 0)
             {

@@ -13,11 +13,23 @@ namespace QLPhongKhamTuNhan.BUS
     {
         UserDAO userDao = new UserDAO();
 
-        public User Login(string username, string password)
+        public User login(string username, string password)
         {
             try
             {
-                return userDao.Login(username, password);
+                return userDao.login(username, password);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<int> getRoleFunction(int roleid)
+        {
+            try
+            {
+                return userDao.getRoleFunction(roleid);
             }
             catch (Exception ex)
             {
