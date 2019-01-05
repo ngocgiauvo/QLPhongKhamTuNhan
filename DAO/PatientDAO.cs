@@ -20,6 +20,14 @@ namespace QLPhongKhamTuNhan.DAO
             return id;
         }
 
+        public int updatePatient(Patient p)
+        {
+            string sql = string.Format("UPDATE patient SET name = N'{0}', sex = {1}, yob = {2}, address = N'{3}' WHERE id = {4}", p.name, p.sex, p.yob, p.address, p.id);
+            int id = dataProcessing.Execute(sql);
+
+            return id;
+        }
+
         public List<Patient> getListPatient()
         {
             string sql = string.Format("SELECT * FROM patient WHERE date_exam = {0}", DateTime.Now.ToString("yyyy-MM-dd"));

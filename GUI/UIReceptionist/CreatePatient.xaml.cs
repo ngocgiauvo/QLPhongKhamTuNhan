@@ -22,9 +22,18 @@ namespace QLPhongKhamTuNhan.GUI.UIReceptionist
     /// </summary>
     public partial class CreatePatient : Window
     {
-        public CreatePatient()
+        public CreatePatient(Patient p)
         {
             InitializeComponent();
+            if (p == null)
+            {
+                btnEdit.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                btnCreate.Visibility = Visibility.Hidden;
+                DataContext = p;
+            }
         }
 
         private void btnCreate_Click(object sender, RoutedEventArgs e)
@@ -53,6 +62,29 @@ namespace QLPhongKhamTuNhan.GUI.UIReceptionist
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            Patient p = new Patient();
+            p.id = Convert.ToInt32(txtPatientId.Text);
+            p.name = txtHoTen.Text;
+            p.sex = cboGioiTinh.SelectedIndex;
+            p.yob = Convert.ToInt32(txtNamSinh.Text);
+            p.address = txtDiaChi.Text;
+
+            PatientBUS patientBUS = new PatientBUS();
+
+            try
+            {
+                int id = patientBUS.updatePatient(p);
+                MessageBox.Show("Cap nhat benh nhan thanh cong");
+                Close();
+            }
+            catch
+            {
+                MessageBox.Show("Cap nhat benh nhan that bai");
+            }
         }
     }
 }

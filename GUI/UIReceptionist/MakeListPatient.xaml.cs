@@ -1,4 +1,5 @@
 ﻿using QLPhongKhamTuNhan.BUS;
+using QLPhongKhamTuNhan.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,9 +34,19 @@ namespace QLPhongKhamTuNhan.GUI.UIReceptionist
 
         private void btnCreatePatient_Click(object sender, RoutedEventArgs e)
         {
-            CreatePatient createPatient = new CreatePatient();
+            CreatePatient createPatient = new CreatePatient(null);
             createPatient.ShowDialog();
             
+            DataContext = patientBUS.getListPatient();
+        }
+
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            Patient p = patientDataGrid.SelectedItem as Patient;
+
+            CreatePatient createPatient = new CreatePatient(p);
+            createPatient.ShowDialog();
+
             DataContext = patientBUS.getListPatient();
         }
     }

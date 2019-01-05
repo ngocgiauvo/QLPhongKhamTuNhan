@@ -23,25 +23,28 @@
             </Grid.RowDefinitions>
             <!--Hàng 1-->
             <TextBlock Grid.Column="0" Text="Tên bệnh nhân: " VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,0,0"/>
-            <TextBox Grid.Column="1" Name="txtHoTen" Margin="5"/>
+            <TextBox Grid.Column="1" Name="txtHoTen" Margin="5" Text="{Binding name}"/>
 
             <!--Hàng 2-->
             <TextBlock Grid.Row="1" Grid.Column="0" Text="Giới tính: " VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,0,0"/>
-            <ComboBox Grid.Row="1" Grid.Column="1" Name="cboGioiTinh" Margin="5" SelectedIndex="0">
+            <ComboBox Grid.Row="1" Grid.Column="1" Name="cboGioiTinh" Margin="5" SelectedIndex="{Binding sex}">
                 <ComboBoxItem Name="cboiNam" Tag="1">Nam</ComboBoxItem>
                 <ComboBoxItem Name="cboiNu" Tag="0">Nữ</ComboBoxItem>
             </ComboBox>
 
             <!--Hàng 3-->
             <TextBlock Grid.Row="2" Grid.Column="0" Text="Năm sinh: " VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,0,0" PreviewTextInput="NumberValidationTextBox"/>
-            <TextBox Grid.Row="2" Grid.Column="1" Name="txtNamSinh" Margin="5"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Name="txtNamSinh" Margin="5" Text="{Binding yob}"/>
 
             <!--Hàng 4-->
             <TextBlock Grid.Row="3" Grid.Column="0" Text="Địa chỉ: " VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,0,0"/>
-            <TextBox Grid.Row="3" Grid.Column="1" Name="txtDiaChi" Margin="5"/>
+            <TextBox Grid.Row="3" Grid.Column="1" Name="txtDiaChi" Margin="5" Text="{Binding address}"/>
 
             <!--Hàng 5-->
             <Button Grid.Row="4" Grid.ColumnSpan="2" x:Name="btnCreate" HorizontalAlignment="Center" Click="btnCreate_Click">Thêm</Button>
+            <Button Grid.Row="4" Grid.ColumnSpan="2" x:Name="btnEdit" HorizontalAlignment="Center" Click="btnEdit_Click">Cập nhật</Button>
+
+            <TextBox Visibility="Hidden" Text="{Binding id}" x:Name="txtPatientId" />
         </Grid>
     </StackPanel>
 </Window>

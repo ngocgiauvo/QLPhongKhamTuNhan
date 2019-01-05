@@ -24,6 +24,18 @@ namespace QLPhongKhamTuNhan.BUS
             }
         }
 
+        public int updatePatient(Patient p)
+        {
+            try
+            {
+                return patientDao.updatePatient(p);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public List<Patient> getListPatient()
         {
             try

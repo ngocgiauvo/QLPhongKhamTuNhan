@@ -76,7 +76,7 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <Button Width="60" Height="30" x:Name="btnUpdate" Content="Sửa" Margin="5,0"/>
+                                <Button Width="60" Height="30" x:Name="btnUpdate" Content="Sửa" Margin="5,0" Click="btnUpdate_Click"/>
                                 <Button Width="60" Height="30" x:Name="btnDelete" Content="Xóa" Margin="5,0"/>
                                 <Button Width="120" Height="30"  Margin="5,0" Content="Lập hóa đơn" x:Name="btnCreateBill"/>
                             </StackPanel>
