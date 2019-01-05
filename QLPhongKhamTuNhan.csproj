@@ -107,6 +107,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BUS\UserBUS.cs" />
+    <Compile Include="DAO\DataProcessing.cs" />
+    <Compile Include="DAO\UserDAO.cs" />
+    <Compile Include="DTO\User.cs" />
     <Compile Include="GUI\UIAdmin\Dashboard.xaml.cs">
       <DependentUpon>Dashboard.xaml</DependentUpon>
     </Compile>
@@ -182,10 +186,6 @@
     <Resource Include="GUI\Icons\turnover.png" />
     <Resource Include="GUI\Icons\user.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BUS\" />
-    <Folder Include="DAO\" />
-    <Folder Include="DTO\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
