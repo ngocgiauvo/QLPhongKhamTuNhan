@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QLPhongKhamTuNhan.BUS;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,22 @@ namespace QLPhongKhamTuNhan.GUI.UIReceptionist
     /// </summary>
     public partial class MakeListPatient : Page
     {
+        PatientBUS patientBUS = new PatientBUS();
+
         public MakeListPatient()
         {
             InitializeComponent();
+
+            currentDay.Text = DateTime.Today.ToShortDateString();
+            DataContext = patientBUS.getListPatient();
+        }
+
+        private void btnCreatePatient_Click(object sender, RoutedEventArgs e)
+        {
+            CreatePatient createPatient = new CreatePatient();
+            createPatient.ShowDialog();
+            
+            DataContext = patientBUS.getListPatient();
         }
     }
 }

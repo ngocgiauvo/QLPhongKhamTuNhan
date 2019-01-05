@@ -87,7 +87,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GUI\UIReceptionist\MakeListPatient.xaml.xaml">
+    <Page Include="GUI\UIReceptionist\CreatePatient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\UIReceptionist\MakeListPatient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -103,9 +107,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BUS\PatientBUS.cs" />
     <Compile Include="BUS\UserBUS.cs" />
     <Compile Include="DAO\DataProcessing.cs" />
+    <Compile Include="DAO\PatientDAO.cs" />
     <Compile Include="DAO\UserDAO.cs" />
+    <Compile Include="DTO\Patient.cs" />
     <Compile Include="DTO\User.cs" />
     <Compile Include="GUI\UIAdmin\Dashboard.xaml.cs">
       <DependentUpon>Dashboard.xaml</DependentUpon>
@@ -131,8 +138,11 @@
     <Compile Include="GUI\UIGeneral\MyAccount.xaml.cs">
       <DependentUpon>MyAccount.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI\UIReceptionist\MakeListPatient.xaml.xaml.cs">
-      <DependentUpon>MakeListPatient.xaml.xaml</DependentUpon>
+    <Compile Include="GUI\UIReceptionist\CreatePatient.xaml.cs">
+      <DependentUpon>CreatePatient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UIReceptionist\MakeListPatient.xaml.cs">
+      <DependentUpon>MakeListPatient.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\UIReport\Medicine.xaml.cs">
       <DependentUpon>Medicine.xaml</DependentUpon>

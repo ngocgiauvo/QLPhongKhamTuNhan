@@ -22,7 +22,7 @@
             <TextBlock Width="200" Height="50" Text="Ngày khám:" FontSize="35" />
             <TextBlock Width="200" Height="50" Text="20/4/2018" x:Name="currentDay"  FontSize="35" FontWeight="Bold" />
         </StackPanel>
-        <Button Grid.Row="2" x:Name="btnCreatePatient" Width="150" Height="50" Content="Thêm bệnh nhân" HorizontalAlignment="Center" />
+        <Button Grid.Row="2" x:Name="btnCreatePatient" Width="150" Height="50" Content="Thêm bệnh nhân" HorizontalAlignment="Center" Click="btnCreatePatient_Click"/>
         <DataGrid Grid.Row="3" CanUserAddRows="False"  
                  x:Name="patientDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding UpdateSourceTrigger=PropertyChanged}">
             <DataGrid.Columns>
@@ -39,7 +39,7 @@
                 <DataGridTemplateColumn Width="300"  Header="Họ tên" x:Name="fullnameCol">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding full_name}"/>
+                            <TextBlock Text="{Binding name}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -57,7 +57,7 @@
                 <DataGridTemplateColumn Width="160"  Header="Năm sinh" x:Name="yobCol">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding year_of_birth}"/>
+                            <TextBlock Text="{Binding yob}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -76,9 +76,9 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <Button Width="60" Height="30" x:Name="btnUpdate" Content="Sửa" Margin="5,0" />
-                                <Button Width="60" Height="30" x:Name="btnDelete" Content="Xóa" Margin="5,0" />
-                                <Button Width="120" Height="30"  Margin="5,0" Content="Lập hóa đơn" x:Name="btnCreateBill" />
+                                <Button Width="60" Height="30" x:Name="btnUpdate" Content="Sửa" Margin="5,0"/>
+                                <Button Width="60" Height="30" x:Name="btnDelete" Content="Xóa" Margin="5,0"/>
+                                <Button Width="120" Height="30"  Margin="5,0" Content="Lập hóa đơn" x:Name="btnCreateBill"/>
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
